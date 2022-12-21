@@ -83,14 +83,51 @@ describe('constructor', () => {
       it('Decreases hunger level by 3 until 0 ', () => {
         const pet = new Pet('fido');
     
-        pet.hunger= 2;
+        pet.hunger= 2,1;
         pet.feed();
 
         expect(pet.hunger).toEqual(0);
       });
 
-
     });
+   
+    describe('checkup' , () => {
+      it('if the pets fitness is 3 or less, it should return I need a walk' , () => {
+        const pet = new Pet('fido');
+
+        pet.fitness= 3;
+        //const petResponse = pet.checkUp();
+        //expect(petResponse).toEqual('I need a walk')
+        expect(pet.checkUp()).toEqual(`${pet.name} says I need a walk`)
+      });
+
+      it('if the pets hunger is 5 or more , it should return I am hungry' , () => {
+        const pet = new Pet('fido');
+
+        pet.hunger = 6;
+        expect(pet.checkUp()).toEqual(`${pet.name} says I am hungry`)
+      });
+
+      it('if both of the above are true , it should return I am hungry AND need a walk ' , () => {
+        const pet = new Pet('fido');
+
+        pet.fitness = 1;
+        pet.hunger = 6;
+        expect(pet.checkUp()).toEqual(`${pet.name} says I am hungry AND need a walk`)
+      });
+
+      it('if  neither of the above are true , it should return I feel amazing ' , () => {
+        const pet = new Pet('fido');
+
+        pet.fitness = 4;
+        pet.hunger = 4;
+        expect(pet.checkUp()).toEqual(`${pet.name} says I feel Amazing!!`)
+      });
+
+ // better descriptions pleaseeeeee
+    
+    });
+
     
 
   });
