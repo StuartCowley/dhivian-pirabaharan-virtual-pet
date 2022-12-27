@@ -22,6 +22,7 @@ describe('constructor', () => {
   
       expect(pet.hunger).toEqual(0);
     });
+  });
 
     describe('growUp', () => {
       it('increments the age by 1', () => {
@@ -125,9 +126,45 @@ describe('constructor', () => {
       });
 
  // better descriptions pleaseeeeee
+ describe('isAlive' , () => {
+  it('if the pets fitness is 0 or less return false ' , () => {
+    const pet = new Pet('fido');
+
+    pet.fitness= 0;
+
+    expect(pet.isAlive).toEqual(false);
+  });
+
+  it('if the pets hunger is 10 or more return false ' , () => {
+    const pet = new Pet('fido');
+
+    pet.hunger= 10;
+
+    expect(pet.isAlive).toEqual(false);
+  });
+
+  it('if the pets age is 30 or more return false ' , () => {
+    const pet = new Pet('fido');
+
+    pet.age= 30;
+
+    expect(pet.isAlive).toEqual(false);
+  });
+
+  it('if the pets fitness is more than 0 , hunger is less than 10 and age is less than 30 return true' , () => {
+    const pet = new Pet('fido');
+
+    pet.fitness= 1;
+    pet.hunger= 7;
+    pet.age = 25;
+
+    expect(pet.isAlive).toEqual(true);
+  });
+
+
     
     });
 
-    
+  
 
   });
