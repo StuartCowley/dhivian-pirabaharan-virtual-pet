@@ -25,6 +25,14 @@ describe('constructor', () => {
   });
 
     describe('growUp', () => {
+      it('throws an error if the pet is not alive', () => {
+        const pet = new Pet('Fido');
+  
+        pet.age = 30;
+  
+        expect(() => pet.feed()).toThrow('Your pet is no longer alive :(');
+      });
+
       it('increments the age by 1', () => {
         const pet = new Pet('Fido');
     
@@ -52,6 +60,14 @@ describe('constructor', () => {
     });
 
     describe('walk', () => {
+      it('throws an error if the pet is not alive', () => {
+        const pet = new Pet('Fido');
+  
+        pet.fitness = 0;
+  
+        expect(() => pet.feed()).toThrow('Your pet is no longer alive :(');
+      });
+
       it('increases fitness by 4', () => {
         const pet = new Pet('fido');
     
@@ -72,6 +88,14 @@ describe('constructor', () => {
     });
     
     describe('Feed' , () => {
+      it('throws an error if the pet is not alive', () => {
+        const pet = new Pet('Fido');
+  
+        pet.hunger = 11;
+  
+        expect(() => pet.feed()).toThrow('Your pet is no longer alive :(');
+      });
+
       it('Decreases hunger level by 3', () => {
         const pet = new Pet('fido');
     
