@@ -148,6 +148,7 @@ describe('constructor', () => {
         pet.hunger = 4;
         expect(pet.checkUp()).toEqual(`${pet.name} says I feel Amazing!!`)
       });
+    }); 
 
  // better descriptions pleaseeeeee
  describe('isAlive' , () => {
@@ -184,11 +185,15 @@ describe('constructor', () => {
 
     expect(pet.isAlive).toEqual(true);
   });
+});  
 
+  describe('adopting a child', () => {
+    it('add a child', () => { 
 
-    
-    });
+        const parent = new Pet('Dave');
+        const child = new Pet('Amelia');
 
-  
-
-  });
+        parent.adoptChild(child); 
+        expect(parent.children).toEqual([child]);
+    })
+})
